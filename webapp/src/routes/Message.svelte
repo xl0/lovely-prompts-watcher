@@ -24,5 +24,5 @@
     <slot></slot>
   </p>
   <!-- ml-5 -->
-  {#if comment} <Bubble color="bg-gray-100" class="-translate-y-1 ml-5">{comment}</Bubble> {/if}
+  {#if comment} <Bubble color="bg-gray-100" class="-translate-y-1 mr-2 ml-5">{comment}</Bubble> {/if}
 </div>

@@ -1,6 +1,7 @@
 <script>
   import Prompt from './Prompt.svelte';
   import Response from './Response.svelte';
+  import Summary from './Summary.svelte';
 
   let messages = [
     {
@@ -43,17 +44,35 @@
 
 </script>
 
-
 <div class="flex">
-<div class="max-w-2xl">
-  <Prompt messages={messages} title="Cluttered prompt meessages"/>
-</div>
+  <div class="overflow-y-scroll max-w-fit min-w-fit max-h-screen">
+  <Summary title="Summary title" comment="Summary comment" meta={response1.meta} />
+  <Summary title="Summary title" comment="Summary comment" meta={response1.meta} />
+  <Summary title="Summary title" comment="Summary comment" meta={response1.meta} />
+  <Summary title="Summary title" comment="Summary comment" meta={response1.meta} />
+  <Summary title="Summary title" comment="Summary comment" meta={response1.meta} />
+  <Summary title="Summary title" comment="Summary comment" meta={response1.meta} />
+  <Summary title="Summary title" comment="Summary comment" meta={response1.meta} />
+  <Summary title="Summary title" comment="Summary comment" meta={response1.meta} />
+  <Summary title="Summary title" comment="Summary comment" meta={response1.meta} />
+  <Summary title="Summary title" comment="Summary comment" meta={response1.meta} />
+  <Summary title="Summary title" comment="Summary comment" meta={response1.meta} />
+  <Summary title="Summary title" comment="Summary comment" meta={response1.meta} />
+  <Summary title="Summary title" comment="Summary comment" meta={response1.meta} />
+  <Summary title="Summary title" comment="Summary comment" meta={response1.meta} />
+  <Summary title="Summary title" comment="Summary comment" meta={response1.meta} />
+  <Summary title="Summary title" comment="Summary comment" meta={response1.meta} />
 
-<!-- <div class="max-w-2xl">
-  <Prompt messages={messages2} title="Neat prompt messages" comment="Usually you don't have comments/titles all over the place"/>
-</div>
- -->
-<div class="max-w-2xl">
-  <Response {...response1} >{response1.response.repeat(20) }</Response>
-</div>
+
+  </div>
+
+  <div class="flex overflow-y-auto max-h-screen" >
+    <div class="w-1/2 grow">
+      <Prompt messages={messages} title="Cluttered prompt meessages"/>
+    </div>
+
+    <div class="w-1/2">
+      <Response {...response1} >{response1.response.repeat(20) }</Response>
+    </div>
+  </div>
 </div>
