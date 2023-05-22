@@ -1,7 +1,14 @@
 <script>
+  import {user, pb} from "$lib/pocketbase";
+  import { onMount, onDestroy } from "svelte";
+
+  import Login from './Login.svelte';
   import Prompt from './Prompt.svelte';
   import Response from './Response.svelte';
   import Summary from './Summary.svelte';
+
+  let interactions = [];
+
 
   let messages = [
     {
@@ -44,30 +51,36 @@
 
 </script>
 
-<div class="flex">
-  <div class="overflow-y-scroll max-w-fit min-w-fit max-h-screen">
-  <Summary title="Summary title" comment="Summary comment" meta={response1.meta} />
-  <Summary title="Summary title" comment="Summary comment" meta={response1.meta} />
-  <Summary title="Summary title" comment="Summary comment" meta={response1.meta} />
-  <Summary title="Summary title" comment="Summary comment" meta={response1.meta} />
-  <Summary title="Summary title" comment="Summary comment" meta={response1.meta} />
-  <Summary title="Summary title" comment="Summary comment" meta={response1.meta} />
-  <Summary title="Summary title" comment="Summary comment" meta={response1.meta} />
-  <Summary title="Summary title" comment="Summary comment" meta={response1.meta} />
-  <Summary title="Summary title" comment="Summary comment" meta={response1.meta} />
-  <Summary title="Summary title" comment="Summary comment" meta={response1.meta} />
-  <Summary title="Summary title" comment="Summary comment" meta={response1.meta} />
-  <Summary title="Summary title" comment="Summary comment" meta={response1.meta} />
-  <Summary title="Summary title" comment="Summary comment" meta={response1.meta} />
-  <Summary title="Summary title" comment="Summary comment" meta={response1.meta} />
-  <Summary title="Summary title" comment="Summary comment" meta={response1.meta} />
-  <Summary title="Summary title" comment="Summary comment" meta={response1.meta} />
+{#if !$user}
+
+<Login />
+
+{:else}
 
 
+<div class="flex max-h-screen max-w-screen">
+  <div class="overflow-y-scroll max-w-fit min-w-fit">
+    <Summary title="Summary title" comment="Summary comment" meta={response1.meta} />
+    <Summary title="Summary title" comment="Summary comment" meta={response1.meta} />
+    <Summary title="Summary title" comment="Summary comment" meta={response1.meta} />
+    <Summary title="Summary title" comment="Summary comment" meta={response1.meta} />
+    <Summary title="Summary title" comment="Summary comment" meta={response1.meta} />
+    <Summary title="Summary title" comment="Summary comment" meta={response1.meta} />
+    <Summary title="Summary title" comment="Summary comment" meta={response1.meta} />
+    <Summary title="Summary title" comment="Summary comment" meta={response1.meta} />
+    <Summary title="Summary title" comment="Summary comment" meta={response1.meta} />
+    <Summary title="Summary title" comment="Summary comment" meta={response1.meta} />
+    <Summary title="Summary title" comment="Summary comment" meta={response1.meta} />
+    <Summary title="Summary title" comment="Summary comment" meta={response1.meta} />
+    <Summary title="Summary title" comment="Summary comment" meta={response1.meta} />
+    <Summary title="Summary title" comment="Summary comment" meta={response1.meta} />
+    <Summary title="Summary title" comment="Summary comment" meta={response1.meta} />
+    <Summary title="Summary title" comment="Summary comment" meta={response1.meta} />
   </div>
-
-  <div class="flex overflow-y-auto max-h-screen" >
-    <div class="w-1/2 grow">
+<div class="overflow-y-auto">
+  <p>Signed in as {$user.username}, you API <button on:click={pb.logout}>Logout</button>
+  <div class="flex " >
+    <div class="w-1/2">
       <Prompt messages={messages} title="Cluttered prompt meessages"/>
     </div>
 
@@ -76,3 +89,7 @@
     </div>
   </div>
 </div>
+</div>
+
+{/if}
+
