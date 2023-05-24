@@ -3,13 +3,12 @@
 
 
   export let toggle:boolean =true;
-  export let color="bg-white";
   // export let class="";
 </script>
 
   <p  on:click={toggle?toggle_truncate:null}
       on:keypress={toggle?toggle_truncate:null}
-      class="max-h-sm px-2 border border-black {color} rounded-md {$$props.class||''}"
+      class="max-h-sm max-w-fit px-2 border border-black rounded-md {$$props.class||''}"
       class:truncate="{toggle}">
     <slot></slot>
   </p>

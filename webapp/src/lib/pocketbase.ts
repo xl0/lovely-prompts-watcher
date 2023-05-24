@@ -1,15 +1,17 @@
+import PocketBase from "pocketbase";
 
-import PocketBase from 'pocketbase';
-import { writable } from 'svelte/store';
+import { writable } from "svelte/store";
 
-export const pb = new PocketBase("http://localhost:8090");
+import { PUBLIC_PB_URL } from "$env/static/public";
 
-export const user = writable(pb.authStore.model);
+export const pb = new PocketBase(PUBLIC_PB_URL);
 
-console.log("user: ", user);
+export const user = writable();
+
+user.set(pb.authStore.model);
 
 pb.authStore.onChange((auth) => {
-    console.log("auth: ", auth);
-    user.set(pb.authStore.model);
+  console.trace({user:user, auth, authStore:pb.authStore})
+  user.set(pb.authStore.model);
 });
 

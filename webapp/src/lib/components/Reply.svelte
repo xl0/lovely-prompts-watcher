@@ -9,7 +9,7 @@ export let comment:string =""
 </script>
 
 <div class="mx-2">
-  {#if title} <div class="flex justify-end"><Bubble class="translate-y-1 mx-2 max-w-fit">{title}</Bubble></div> {/if}
+  {#if title} <div class="flex justify-end"><Bubble class="translate-y-1 mx-2 max-w-fit bg-white">{title}</Bubble></div> {/if}
 
   <div class = "border-black border rounded-md px-2 border-dashed">
 
@@ -24,7 +24,7 @@ export let comment:string =""
     </p>
   </div>
 
-  {#if comment} <div class="flex justify-end"><Bubble class="-translate-y-1 mx-2 max-w-fit">{comment}</Bubble></div> {/if}
+  {#if comment} <div class="flex justify-end"><Bubble class="-translate-y-1 mx-2 max-w-fit bg-white">{comment}</Bubble></div> {/if}
 </div>
 
 

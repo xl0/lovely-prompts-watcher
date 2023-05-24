@@ -16,13 +16,13 @@
 
 <div class={$$props.class}>
   <div class="flex items-end justify-between">
-    {#if role}  <Bubble toggle={false} color={role_color(role)} class="mx-2 translate-y-1">{role}</Bubble>{/if}
-    {#if title} <Bubble color="bg-amber-200" class="mx-2 translate-y-1">{title}</Bubble> {/if}
+    {#if role}  <Bubble toggle={false} class="mx-2 translate-y-1 {role_color(role)}">{role}</Bubble>{/if}
+    {#if title} <Bubble class="mx-2 translate-y-1 bg-amber-200">{title}</Bubble> {/if}
   </div>
 
   <p class="px-2 border border-black bg-white rounded-sm">
     <slot></slot>
   </p>
   <!-- ml-5 -->
-  {#if comment} <Bubble color="bg-gray-100" class="-translate-y-1 mr-2 ml-5">{comment}</Bubble> {/if}
+  {#if comment} <Bubble class="bg-gray-100 -translate-y-1 mr-2 ml-5">{comment}</Bubble> {/if}
 </div>
