@@ -12,7 +12,7 @@
 
 </script>
 
-<div class="border-black border p-1 rounded-md {$$props.class||''}">
+<div class="hover:bg-blue-50 border-black border p-1 rounded-md {$$props.class||''}">
 
   <p class="text-base line-clamp-2 text-ellipsis">{title||"Prompt"}</p>
 <div class="flex justify-between items-top">

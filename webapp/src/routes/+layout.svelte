@@ -88,7 +88,7 @@
                         comment={prompt.comment}
                         updated={prompt.updated}
                         replies = {prompt.expand['replies(prompt)']}
-                        class="max-w-xs"/>
+                        class="max-w-xs m-1"/>
                 </a>
             {/each}
 
