@@ -33,7 +33,7 @@ console.log({$user});
 
 {#if $user}
 <div class="flex border-b border-black {$$props.class||''}">
-<p class="mr-2">current user is {$user.username} ({$user.email}) <code>API KEY: {$user.id}_{$user.api_token}</code></p>
+<p class="mr-2">current user is {$user.username} ({$user.email}) <code>LP_API_KEY={$user.id}_{$user.api_token}</code></p>
 <!-- {console.log(JSON.stringify($user))} -->
 
 <form action="" placeholder="username" on:submit|preventDefault>

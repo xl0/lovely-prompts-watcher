@@ -18,7 +18,7 @@ import Message from './Message.svelte';
       title={message.title}
       comment={message.comment}
       >
-        {message.message}
+        {message.content}
       </Message>
       {/each}
     {:else}

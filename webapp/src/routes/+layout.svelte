@@ -58,6 +58,7 @@
               "expand.replies(prompt).id, expand.replies(prompt).title, expand.replies(prompt).comment," +
               "expand.replies(prompt).updated, expand.replies(prompt).meta," +
               "expand.replies(prompt).tok_in, expand.replies(prompt).tok_out, expand.replies(prompt).tok_max",
+      sort: "-updated",
     })
     console.log("Collected on mount: ", {res})
     console.log({user:$user});
