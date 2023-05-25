@@ -14,14 +14,15 @@
 
 <div class="border-black border p-1 rounded-md {$$props.class||''}">
 
-<div class="flex justify-between">
-  <p class="text-base">{title||"Prompt"}</p>
-  <p class="float-right items-start text-sm font-light min-w-fit"> {formatDistanceToNow(new Date(updated), { addSuffix: true, includeSeconds: true}).replace("about ", "").replace("hour", "h")} </p>
-</div>
+  <p class="text-base line-clamp-2 text-ellipsis">{title||"Prompt"}</p>
+<div class="flex justify-between items-top">
 
   {#if comment}
-    <div class="text-xs"><p>{comment}</p></div>
+  <div class="text-xs"><p>{comment}</p></div>
   {/if}
+
+  <p class="justify-self-end text-sm font-light text-ellipsis"> {formatDistanceToNow(new Date(updated), { addSuffix: true, includeSeconds: true}).replace("about ", "").replace("hour", "h")} </p>
+</div>
 <!--
   {date_fmt.format(updated)}
   {comment} -->

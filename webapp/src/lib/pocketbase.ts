@@ -10,6 +10,8 @@ export const user = writable();
 
 user.set(pb.authStore.model);
 
+console.trace({user, authStore:pb.authStore})
+
 pb.authStore.onChange((auth) => {
   console.trace({user:user, auth, authStore:pb.authStore})
   user.set(pb.authStore.model);

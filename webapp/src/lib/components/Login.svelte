@@ -27,22 +27,25 @@ function signout() {
     pb.authStore.clear();
 }
 
+console.log({$user});
+
 </script>
 
 {#if $user}
-<p>current user is {$user.username} ({$user.email})</p>
+<div class="flex border-b border-black {$$props.class||''}">
+<p class="mr-2">current user is {$user.username} ({$user.email}) <code>API KEY: {$user.id}_{$user.api_token}</code></p>
 <!-- {console.log(JSON.stringify($user))} -->
 
 <form action="" placeholder="username" on:submit|preventDefault>
-  <button type="button" on:click={signout}>signout</button>
+  <button class="border border-black rounded-md px-1" type="button" on:click={signout}>signout</button>
 </form>
-
+</div>
 {:else}
 <form action="" placeholder="username" on:submit|preventDefault>
 
   <input type="text" bind:value={username} placeholder="username" />
   <input type="password" bind:value={password} placeholder="password" />
-  <button type="submit" on:click={login}>login</button>
+  <button class="border border-black rounded-md px-1" type="submit" on:click={login}>login</button>
   <!-- <button type="button" on:click={register}>register</button> -->
   <!-- <button type="button" on:click={signout}>signout</button> -->
 

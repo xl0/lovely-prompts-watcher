@@ -71,11 +71,10 @@
 
 
   <div class="flex flex-col h-screen" >
-    <Login />
+    <Login class="py-1"/>
     <!-- <Navbar/> -->
-    <div class="flex h-full">
-        <div class="overflow-y-scroll max-w-xs shrink-0">
-
+    <div class="flex overflow-hidden grow" >
+        <div class="overflow-y-scroll shrink-0">
             {#each interactions as prompt (prompt.id)}
                 <!-- prompt_json = -->
 
@@ -87,7 +86,8 @@
                 <PromptSummary title={prompt.title}
                         comment={prompt.comment}
                         updated={prompt.updated}
-                        replies = {prompt.expand['replies(prompt)']}/>
+                        replies = {prompt.expand['replies(prompt)']}
+                        class="max-w-xs"/>
                 </a>
             {/each}
 

@@ -12,7 +12,7 @@
 
 <!-- <div> -->
     <!-- <pre>{JSON.stringify(data, null, 2)}</pre> -->
-    <div class="flex" >
+    <div class="flex grow w-full" >
         <div class="w-1/2">
             <!-- <Prompt messages={data.prompt.messages} title="Prompt messages"/> -->
             <Prompt messages={data.messages} title={data.title} comment={data.comment}/>
@@ -22,9 +22,9 @@
             {#if data.expand["replies(prompt)"]}
             <!-- <pre>{JSON.stringify(data.expand["replies(prompt)"], null, 2)}</pre> -->
 
-            {#each data.expand["replies(prompt)"] as reply}
-                <Reply title={reply.title} comment={reply.comment} meta={reply.meta} > {reply.reply}</Reply>
-            {/each}
+                {#each data.expand["replies(prompt)"] as reply}
+                    <Reply title={reply.title} comment={reply.comment} meta={reply.meta} > {reply.reply}</Reply>
+                {/each}
             {/if}
         </div>
     </div>

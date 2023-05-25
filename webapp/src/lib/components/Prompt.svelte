@@ -8,7 +8,7 @@ import Message from './Message.svelte';
 
 </script>
 
-<div class="mx-2">
+<div class="mx-2 {$$props.class||''}">
   {#if title} <div class="flex justify-end"><Bubble class="translate-y-1 mx-2 max-w-fit bg-white">{title}</Bubble></div> {/if}
   <div class = "border-black border rounded-md p-2 border-dashed">
     {#if messages}
@@ -22,7 +22,7 @@ import Message from './Message.svelte';
       </Message>
       {/each}
     {:else}
-      <div class="h-xl">sdfsdfsdfdfsdfdfdfsd</div>
+      <div class=""></div>
     {/if}
 
 </div>
