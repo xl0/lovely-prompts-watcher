@@ -6,13 +6,15 @@
   export let title = "";
   export let comment = "";
   export let updated;
-  export let replies = [];
+  export let replies;
 
   let date_fmt = new Intl.RelativeTimeFormat("en", {numeric: "auto"});
 
 </script>
 
+
 <div class="hover:bg-blue-50 border-black border p-1 rounded-md {$$props.class||''}">
+
 
   <p class="text-base line-clamp-2 text-ellipsis">{title||"Prompt"}</p>
 <div class="flex justify-between items-top">
@@ -28,19 +30,21 @@
   {comment} -->
 
 
-  <!-- <pre> {JSON.stringify(replies,null,2)} </pre> -->
-
-  {#each replies as reply (reply.id)}
-    <ReplySummary
-      class="my-1"
-      title={reply.title}
-      comment={reply.comment}
-      meta={reply.meta}
-      tok_in={reply.tok_in}
-      tok_out={reply.tok_out}
-      tok_max={reply.tok_max}
-      timediff={formatDistance(new Date(reply.updated), new Date(updated), { addSuffix: true, includeSeconds: true}).replace("about ", "")}/>
-  {/each}
+  <!-- <pre>replies: {JSON.stringify(replies,null,2)} </pre> -->
+  {#if replies }
+    {#each replies as reply (reply.id)}
+      {@debug reply}
+      <ReplySummary
+        class="my-1"
+        title={reply.title}
+        comment={reply.comment}
+        meta={reply.meta}
+        tok_in={reply.tok_in}
+        tok_out={reply.tok_out}
+        tok_max={reply.tok_max}
+        timediff={formatDistance(new Date(reply.updated), new Date(updated), { addSuffix: true, includeSeconds: true}).replace("about ", "")}/>
+    {/each}
+  {/if}
 
     <!-- <ReplySummary  -->
 

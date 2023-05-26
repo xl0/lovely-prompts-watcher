@@ -15,8 +15,6 @@
 </script>
 
 <div class="hover:bg-blue-100 border-black border p-1 rounded-md {$$props.class||''}">
-
-
   <div class="text-base">{title||"Reply"}</div>
 
   {#if meta}

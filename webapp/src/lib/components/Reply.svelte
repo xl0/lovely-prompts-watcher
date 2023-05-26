@@ -9,7 +9,10 @@ export let comment:string =""
 </script>
 
 <div class="mx-2">
-  {#if title} <div class="flex justify-end"><Bubble class="translate-y-1 mx-2 max-w-fit bg-white">{title}</Bubble></div> {/if}
+  <div class="flex justify-end">
+    <!-- Fake a title bubble to keep things lined up nicely -->
+    <Bubble class="{title?'':'opacity-0'} translate-y-1 mx-2 max-w-fit bg-white">{title?title:"title"}</Bubble>
+  </div>
 
   <div class = "border-black border rounded-md px-2 border-dashed">
 
