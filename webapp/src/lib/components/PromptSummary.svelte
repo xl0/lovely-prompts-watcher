@@ -5,8 +5,9 @@
 
   export let title = "";
   export let comment = "";
-  export let updated;
-  export let replies;
+  export let updated:Date|undefined = undefined;
+  export let reply_list:Array<string>|undefined = undefined;
+  export let reply_db:Record<string, any>|undefined = undefined;
 
   let date_fmt = new Intl.RelativeTimeFormat("en", {numeric: "auto"});
 
@@ -28,21 +29,21 @@
 <!--
   {date_fmt.format(updated)}
   {comment} -->
-
-
+  <!-- {@debug replies} -->
   <!-- <pre>replies: {JSON.stringify(replies,null,2)} </pre> -->
-  {#if replies }
-    {#each replies as reply (reply.id)}
-      {@debug reply}
+  {#if reply_list && reply_db }
+    {#each reply_list as rid}
+      {@debug rid}
       <ReplySummary
         class="my-1"
-        title={reply.title}
-        comment={reply.comment}
-        meta={reply.meta}
-        tok_in={reply.tok_in}
-        tok_out={reply.tok_out}
-        tok_max={reply.tok_max}
-        timediff={formatDistance(new Date(reply.updated), new Date(updated), { addSuffix: true, includeSeconds: true}).replace("about ", "")}/>
+        title={reply_db[rid].title}
+        comment={reply_db[rid].comment}
+        meta={reply_db[rid].meta}
+        tok_in={reply_db[rid].tok_in}
+        tok_out={reply_db[rid].tok_out}
+        tok_max={reply_db[rid].tok_max}
+        />
+        <!-- timediff={formatDistance(new Date(reply.updated), new Date(updated), { addSuffix: true, includeSeconds: true}).replace("about ", "")} -->
     {/each}
   {/if}
 
